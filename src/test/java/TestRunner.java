@@ -19,7 +19,7 @@ public class TestRunner {
     @Test
     public void test01_useAngularLocator() {
         SignUp signUp = new SignUp();
-        signUp.signUpToPage("Dudi","testQA1234@gmail.com","Dd1122334455","Dd1122334455");
+        signUp.signUpToPage("Dudi","QAExpertsIL@gmail.com","Dd1122334455","Dd1122334455");
     }
 
     @AfterClass

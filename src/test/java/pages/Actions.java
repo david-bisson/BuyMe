@@ -13,6 +13,10 @@ public class Actions {
         getWebElement(locator).sendKeys(text);
     }
 
+    public String getElementText(By locator) {
+        return getWebElement(locator).getText();
+    }
+
     private WebElement getWebElement(By locator) {
         return DriverSingleton.getDriverInstance().findElement(locator);
     }
