@@ -3,6 +3,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.Home;
+import pages.PickBusiness;
 import pages.SignUp;
 
 import java.util.concurrent.TimeUnit;
@@ -24,6 +25,9 @@ public class TestRunner {
 
         Home home = new Home();
         home.chooseGift();
+
+        PickBusiness pickBusiness = new PickBusiness();
+        pickBusiness.pickBusinessAndEnterAmount();
     }
 
     @AfterClass
