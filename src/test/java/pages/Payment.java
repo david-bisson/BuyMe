@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
 
 public class Payment extends Actions {
     private static final String nowRadioButton = "#ember3223";
@@ -12,17 +13,18 @@ public class Payment extends Actions {
     private static final String submitButton = "#ember3253";
 
 
-    public void sendGiftTo(){
+    public void sendGiftTo(String name, String email){
         waitForElementToAppear(By.cssSelector(nowRadioButton));
         clickElement(By.cssSelector(laterRadioButton));
         clickElement(By.cssSelector(nowRadioButton));
 
         clickElement(By.cssSelector(recieverEmailOption));
-        sendKeysToElement(By.cssSelector(recieverEmailTextBox),"ddd@dddd.com");
+        sendKeysToElement(By.cssSelector(recieverEmailTextBox),email);
 
 
         clearTextBox(By.cssSelector(sendersName));
-        sendKeysToElement(By.cssSelector(sendersName),"Daniel");
+        sendKeysToElement(By.cssSelector(sendersName),name);
+        Assert.assertEquals(name,getElementAttribute(By.cssSelector(sendersName)));
 
         clickElement(By.cssSelector(submitButton));
 

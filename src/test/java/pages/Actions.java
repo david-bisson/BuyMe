@@ -26,8 +26,8 @@ public class Actions {
         getWebElement(locator).sendKeys(text);
     }
 
-    public String getElementText(By locator) {
-        return getWebElement(locator).getText();
+    public String getElementAttribute(By locator) {
+        return getWebElement(locator).getAttribute("value");
     }
 
     private WebElement getWebElement(By locator) {
@@ -52,5 +52,7 @@ public class Actions {
         List<WebElement> elementsList = driver.findElements(locator);
         elementsList.get(index).click();
     }
+
+
 
 }

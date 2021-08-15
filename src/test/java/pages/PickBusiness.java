@@ -9,10 +9,10 @@ public class PickBusiness extends Actions{
     private static final String amountValue = "500";
     private static final String submitAmountButton = "#ember2967";
 
-    public void pickBusinessAndEnterAmount() {
+    public void pickBusinessAndEnterAmount(String giftAmountValue) {
 
         clickElement(By.cssSelector(cafeTaizu));
-        sendKeysToElement(By.cssSelector(amountTextBox),amountValue);
+        sendKeysToElement(By.cssSelector(amountTextBox),giftAmountValue);
         clickElement(By.cssSelector(submitAmountButton));
 
 

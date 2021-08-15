@@ -28,13 +28,13 @@ public class TestRunner {
         home.chooseGift();
 
         PickBusiness pickBusiness = new PickBusiness();
-        pickBusiness.pickBusinessAndEnterAmount();
+        pickBusiness.pickBusinessAndEnterAmount("500");
 
         CardReciever cardReciever = new CardReciever();
         cardReciever.fillCaregiverPage("David","שנה טובה ומתוקה");
 
         Payment payment = new Payment();
-        payment.sendGiftTo();
+        payment.sendGiftTo("Uncle Moses","mosesfarm@QAExperts.com");
     }
 
     @AfterClass

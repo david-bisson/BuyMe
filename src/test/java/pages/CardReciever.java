@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
 
 public class CardReciever extends Actions{
 
@@ -17,6 +18,7 @@ public class CardReciever extends Actions{
     public void fillCaregiverPage(String name, String blessing) {
         waitForElementToAppear(By.cssSelector(receiverNameTextBox));
         sendKeysToElement(By.cssSelector(receiverNameTextBox),name);
+        Assert.assertEquals(name,getElementAttribute(By.cssSelector(receiverNameTextBox)));
         clickElement(By.cssSelector(eventNameDropDownList));
         clickElement(By.cssSelector(eventNameDropDownOption));
         clearTextBox(By.cssSelector(blessingTextBox));
