@@ -1,11 +1,12 @@
 import configuration.DriverSingleton;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.Home;
-import pages.PickBusiness;
-import pages.SignUp;
+import pages.*;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class TestRunner {
@@ -28,6 +29,12 @@ public class TestRunner {
 
         PickBusiness pickBusiness = new PickBusiness();
         pickBusiness.pickBusinessAndEnterAmount();
+
+        CardReciever cardReciever = new CardReciever();
+        cardReciever.fillCaregiverPage("David","שנה טובה ומתוקה");
+
+        Payment payment = new Payment();
+        payment.sendGiftTo();
     }
 
     @AfterClass

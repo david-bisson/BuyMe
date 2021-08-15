@@ -15,5 +15,6 @@ public class PickBusiness extends Actions{
         sendKeysToElement(By.cssSelector(amountTextBox),amountValue);
         clickElement(By.cssSelector(submitAmountButton));
 
+
     }
 }
