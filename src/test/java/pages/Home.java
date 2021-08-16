@@ -16,6 +16,8 @@ public class Home extends Actions{
 
     public void chooseGift() {
 
+
+
         clickElement(By.linkText(amountDropDown));
         clickElement(By.xpath(amountDropDown99));
 

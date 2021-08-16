@@ -19,6 +19,7 @@ public class Actions {
 
     /**
      * click on any Element
+     *
      * @param locator - By.Id/cssLocator etc...
      */
     public void clickElement(By locator) {
@@ -28,15 +29,15 @@ public class Actions {
 
     /**
      * send keys or string to any Element
+     *
      * @param locator - By.Id/cssLocator etc...
-     * @param text - the keys you want to send
+     * @param text    - the keys you want to send
      */
     public void sendKeysToElement(By locator, String text) {
         getWebElement(locator).sendKeys(text);
     }
 
     /**
-     *
      * @param locator - By.Id/cssLocator etc...
      * @return - returns the value of the text value in text boxes
      */
@@ -45,7 +46,6 @@ public class Actions {
     }
 
     /**
-     *
      * @param locator By.Id/cssLocator etc...
      * @return driver object instance for the WebElement
      */
@@ -56,6 +56,7 @@ public class Actions {
 
     /**
      * clearing text boxes values
+     *
      * @param locator - By.Id/cssLocator etc...
      */
     public void clearTextBox(By locator) {
@@ -64,10 +65,20 @@ public class Actions {
 
     /**
      * explicit wait for element to be visible
+     *
      * @param locator - By.Id/cssLocator etc...
      */
     public void waitForElementToAppear(By locator) {
         waitForElement().until(elementToBeClickable(locator));
+    }
+
+    /**
+     *
+     * @param locator -  By.Id/cssLocator etc...
+     * @return elemnts text
+     */
+    public String getTextFromElement(By locator) {
+        return DriverSingleton.getDriverInstance().findElement(locator).getText();
     }
 
 
