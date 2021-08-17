@@ -1,40 +1,66 @@
 import configuration.DriverSingleton;
-import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.*;
 
 import java.util.concurrent.TimeUnit;
 
-import static configuration.DriverSingleton.waitForElement;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
-import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 public class Extra {
 
     @BeforeClass
     public static void runOnceBeforeClass() {
         DriverSingleton.getDriverInstance().manage().window().maximize();
-        DriverSingleton.getDriverInstance().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        DriverSingleton.getDriverInstance().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         DriverSingleton.getDriverInstance().get("https://buyme.co.il/");
     }
 
-
+    /**
+     * I like Javadoc
+     */
     @Test
-    public void test01_print_loading_element_size() {
-        DriverSingleton.getDriverInstance().navigate().refresh();
-        System.out.println(waitForElement().until(presenceOfElementLocated(By.id("app-loading-img"))).getSize());
+    public void extra() {
+
+
+
+        SignUp signUp = new SignUp();
+
+        signUp.validateErrorMessagesOnLogging();
+
+        signUp.signUpToPage("Dudi","QAExpertsIL@gmail.com","Dd1122334455","Dd1122334455");
+
+        Home home = new Home();
+        home.chooseGift();
+
+        PickBusiness pickBusiness = new PickBusiness();
+        pickBusiness.pickBusinessAndEnterAmount("500");
+
+        CardReciever cardReciever = new CardReciever();
+        cardReciever.fillCaregiverPage("David","שנה טובה ומתוקה");
+
+        Payment payment = new Payment();
+        payment.getElementColor();
+
+         // go to https://convertingcolors.com/ and copy paste the result: rgba(255, 161, 38, 1)
+
+       signUp.getElementSizeAndScreenShot();
+
     }
 
-    @Test
+    @Ignore
     public void test02_error_messages_on_login() {
         SignUp signUp = new SignUp();
         signUp.validateErrorMessagesOnLogging();
+
+
     }
+
 
     @AfterClass
     public static void tearDown() {
-        // driver.quit();
+        DriverSingleton.getDriverInstance().quit();
     }
 }

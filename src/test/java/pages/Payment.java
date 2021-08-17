@@ -1,16 +1,17 @@
 package pages;
 
+import configuration.DriverSingleton;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
 public class Payment extends Actions {
-    private static final String nowRadioButton = "#ember3223";
-    private static final String laterRadioButton = "#ember3225";
+    private static final String nowRadioButton = "div[gtm='עכשיו']";
+    private static final String laterRadioButton = "div[gtm='במועד מאוחר יותר']";
     private static final String sendGiftViaOption = ".circle";
     private static final String recieverEmailTextBox = "#email";
-    private static final String recieverEmailOption = "svg[data-ember-action='3234']";
-    private static final String sendersName = "#ember3252";
-    private static final String submitButton = "#ember3253";
+    private static final String recieverEmailOption = "svg[gtm='method-email']";
+    private static final String sendersName = "input[placeholder='שם שולח המתנה']";
+    private static final String submitButton = "button[gtm='המשך לתשלום']";
 
 
     public void sendGiftTo(String name, String email){
@@ -28,7 +29,10 @@ public class Payment extends Actions {
 
         clickElement(By.cssSelector(submitButton));
 
+    }
 
+    public void getElementColor() {
+        System.out.println(DriverSingleton.getDriverInstance().findElement(By.cssSelector(submitButton)).getCssValue("background-color"));
     }
 
 

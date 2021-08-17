@@ -1,12 +1,16 @@
 package pages;
 
 import configuration.DriverSingleton;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
@@ -81,5 +85,14 @@ public class Actions {
         return DriverSingleton.getDriverInstance().findElement(locator).getText();
     }
 
+    public static void takeElementScreenshot(WebElement element){
+        File screenShotFile = element.getScreenshotAs(OutputType.FILE); // take the screenshot
+        try {
+
+            FileUtils.copyFile(screenShotFile, new File("element-screenshot.png")); // save screenshot to disk
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

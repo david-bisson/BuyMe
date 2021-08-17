@@ -2,23 +2,30 @@ package pages;
 
 import configuration.DriverSingleton;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WindowType;
 import org.testng.Assert;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
+import static configuration.DriverSingleton.waitForElement;
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
+
 public class SignUp extends Actions {
     private final Long timeStamp = Timestamp.valueOf(LocalDateTime.now()).getTime();
     private static final String signUpButton = "//*[@id=\"ember953\"]/div/ul[1]/li[3]/a/span[2]";
     private static final String registerLink = ".text-link";
-    private static final String nameTextBox = "#ember1462";
-    private static final String emailAddressTextBox = "#ember1465";
+    //    private static final String nameTextBox = "#ember1462";
+    private static final String nameTextBox = "input[placeholder='שם פרטי']";
+    private static final String emailAddressTextBox = "input[placeholder='מייל']";
+    //    private static final String emailAddressTextBox = "#ember1465";
     private static final String logInEmailAddressTextBox = "#ember1617";
     private static final String logInPasswordTextBox = "#ember1616";
     private static final String logInButton = "#ember1625";
     private String NewEmailAddress;
-    private static final String passwordTextBox1 = "#valPass";
-    private static final String passwordTextBox2 = "#ember1471";
+    private static final String passwordTextBox1 = "input[placeholder='סיסמה']";
+    //    private static final String passwordTextBox1 = "#valPass";
+    private static final String passwordTextBox2 = "input[placeholder='אימות סיסמה']";
     private static final String submitSignUpButton = "button[type=submit]";
     private static final String myAccount = "#ember1510";
     private static final String logOut = "יציאה";
@@ -49,12 +56,24 @@ public class SignUp extends Actions {
     }
 
     public void validateErrorMessagesOnLogging() {
+
         String errorMessage = "כל המתנות מחכות לך! אבל קודם צריך מייל וסיסמה";
         clickElement(By.xpath(signUpButton));
         clickElement(By.cssSelector(submitSignUpButton));
         Assert.assertEquals(getTextFromElement(By.cssSelector(signUpEmailErrorMessage)), errorMessage);
         Assert.assertEquals(getTextFromElement(By.cssSelector(signUpPasswordErrorMessage)), errorMessage);
         DriverSingleton.getDriverInstance().findElement(By.id("times")).click();
+        waitForElement().until(presenceOfElementLocated(By.xpath(signUpButton)));
 
     }
+
+    public void getElementSizeAndScreenShot() {
+        DriverSingleton.getDriverInstance().switchTo().newWindow(WindowType.TAB);
+        DriverSingleton.getDriverInstance().get("https://buyme.co.il");
+        System.out.println(waitForElement().until(presenceOfElementLocated(By.cssSelector(".bounce3"))).getSize());
+        takeElementScreenshot(DriverSingleton.getDriverInstance().findElement(By.cssSelector(".bounce3")));
+
+    }
+
+
 }
