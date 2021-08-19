@@ -42,6 +42,11 @@
             <!-- You might want to delete the following line if you get "package com.paulhammant.ngwebdriver does not exist" errors -->
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
 
     </dependencies>
 

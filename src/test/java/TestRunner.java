@@ -14,8 +14,9 @@ public class TestRunner {
     @BeforeClass
     public static void runOnceBeforeClass() {
     DriverSingleton.getDriverInstance().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        DriverSingleton.getDriverInstance().manage().window().maximize();
     DriverSingleton.getDriverInstance().get("https://buyme.co.il/");
-    DriverSingleton.getDriverInstance().manage().window().maximize();
+
     }
 
 
@@ -39,6 +40,6 @@ public class TestRunner {
 
     @AfterClass
     public static void tearDown() {
-        // driver.quit();
+//       DriverSingleton.getDriverInstance().quit();
     }
 }
