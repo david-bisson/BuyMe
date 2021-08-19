@@ -40,6 +40,6 @@ public class TestRunner {
 
     @AfterClass
     public static void tearDown() {
-//       DriverSingleton.getDriverInstance().quit();
+       DriverSingleton.getDriverInstance().quit();
     }
 }
