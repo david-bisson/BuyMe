@@ -67,20 +67,20 @@ public class SignUp extends Actions {
 
     }
 
-    public  boolean getElementSizeAndScreenShot() {
+    public boolean getElementSizeAndScreenShot() {
         DriverSingleton.getDriverInstance().switchTo().newWindow(WindowType.TAB);
 
         for (int i = 0; i < 10; i++) {
-            DriverSingleton.getDriverInstance().get("https://buyme.co.il");
-            System.out.println(waitForElement().until(presenceOfElementLocated(By.cssSelector(".bounce3"))).getSize());
             try {
+                DriverSingleton.getDriverInstance().get("https://buyme.co.il");
+                DriverSingleton.getDriverInstance().navigate().refresh();
                 System.out.println(waitForElement().until(presenceOfElementLocated(By.cssSelector(".bounce3"))).getSize());
                 takeElementScreenshot(DriverSingleton.getDriverInstance().findElement(By.cssSelector(".bounce3")));
                 return true;
             } catch (Exception e) {
-                return false;
+                DriverSingleton.getDriverInstance().navigate().refresh();
             }
         }
-        return true;
+        return false;
     }
 }
