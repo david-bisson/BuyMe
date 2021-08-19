@@ -82,6 +82,10 @@ public class Actions {
         return DriverSingleton.getDriverInstance().findElement(locator).getText();
     }
 
+    /**
+     * take element Screentshot
+     * @param element
+     */
     public static void takeElementScreenshot(WebElement element) {
         File screenShotFile = element.getScreenshotAs(OutputType.FILE); // take the screenshot
         try {
@@ -92,24 +96,38 @@ public class Actions {
         }
     }
 
-
+    /**
+     * scroll to element
+     * @param locator
+     * @throws InterruptedException
+     */
     public void scrollToElement(By locator) throws InterruptedException {
         Thread.sleep(2000);
         WebElement element = DriverSingleton.getDriverInstance().findElement(locator);
         ((JavascriptExecutor) DriverSingleton.getDriverInstance()).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
+    /**
+     * Select value from drop down list (not usued)
+     * @param locator
+     * @param visibleText
+     */
     public void selectFromDropDown(By locator, String visibleText) {
         Select mySelection = new Select(DriverSingleton.getDriverInstance().findElement(locator));
         mySelection.selectByVisibleText(visibleText);
 
     }
 
+    /**
+     * click on element from list array
+     * @param locator
+     * @param text
+     */
     public void listClickElement (By locator, String text){
         List<WebElement> elements = DriverSingleton.getDriverInstance().findElements(locator);
-        for (int i = 0; i < elements.size(); i++) {
-            if (elements.get(i).getText().equals(text)) {
-                elements.get(i).click();
+        for (WebElement element : elements) {
+            if (element.getText().equals(text)) {
+                element.click();
             }
         }
     }

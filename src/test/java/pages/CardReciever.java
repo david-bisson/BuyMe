@@ -5,13 +5,11 @@ import org.testng.Assert;
 
 public class CardReciever extends Actions{
 
-    private static final String someOneElseOption= "#";
     private static final String receiverNameTextBox= "input[data-parsley-required-message='מי הזוכה המאושר? יש להשלים את שם המקבל/ת']";
     private static final String eventNameDropDownList= ".selected-name";
     private static final String eventNameDropDownOption= "li[value='11']";
     private static final String blessingTextBox= "textarea[rows='4']";
     private static final String cleanAllButton= ".textarea-clear-all";
-    private static final String uploadPicture= "#";
     private static final String continueButton= "button[type='submit']";
 
 
