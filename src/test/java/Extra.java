@@ -1,4 +1,5 @@
 import configuration.DriverSingleton;
+import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Ignore;
@@ -22,7 +23,7 @@ public class Extra {
      * I like Javadoc
      */
     @Test
-    public void extra() {
+    public void extra() throws InterruptedException {
 
 
         SignUp signUp = new SignUp();
@@ -35,6 +36,7 @@ public class Extra {
         home.chooseGift();
 
         PickBusiness pickBusiness = new PickBusiness();
+        pickBusiness.scrollToElement(By.cssSelector(".buyme-footer-logo")); // SCROLL TO BOTTOM OF THE PAGE
         pickBusiness.pickBusinessAndEnterAmount("500");
 
         CardReciever cardReciever = new CardReciever();

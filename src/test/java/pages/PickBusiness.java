@@ -2,7 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 
-public class PickBusiness extends Actions{
+public class PickBusiness extends Actions {
 
     private static final String resturants = "BUYME DINE - מסעדות בפריסה ארצית";
     private static final String amountTextBox = "input[placeholder='הכנס סכום']";
