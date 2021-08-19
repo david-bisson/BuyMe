@@ -2,12 +2,10 @@ package pages;
 
 import configuration.DriverSingleton;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Test;
 
 import java.io.File;
 import java.io.IOException;
@@ -77,7 +75,6 @@ public class Actions {
     }
 
     /**
-     *
      * @param locator -  By.Id/cssLocator etc...
      * @return elemnts text
      */
@@ -85,7 +82,7 @@ public class Actions {
         return DriverSingleton.getDriverInstance().findElement(locator).getText();
     }
 
-    public static void takeElementScreenshot(WebElement element){
+    public static void takeElementScreenshot(WebElement element) {
         File screenShotFile = element.getScreenshotAs(OutputType.FILE); // take the screenshot
         try {
 
@@ -95,4 +92,25 @@ public class Actions {
         }
     }
 
+
+    public void scrollToElement(By locator) throws InterruptedException {
+        Thread.sleep(2000);
+        WebElement element = DriverSingleton.getDriverInstance().findElement(locator);
+        ((JavascriptExecutor) DriverSingleton.getDriverInstance()).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    public void selectFromDropDown(By locator, String visibleText) {
+        Select mySelection = new Select(DriverSingleton.getDriverInstance().findElement(locator));
+        mySelection.selectByVisibleText(visibleText);
+
+    }
+
+    public void listClickElement (By locator, String text){
+        List<WebElement> elements = DriverSingleton.getDriverInstance().findElements(locator);
+        for (int i = 0; i < elements.size(); i++) {
+            if (elements.get(i).getText().equals(text)) {
+                elements.get(i).click();
+            }
+        }
+    }
 }

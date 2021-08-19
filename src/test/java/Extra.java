@@ -25,12 +25,11 @@ public class Extra {
     public void extra() {
 
 
-
         SignUp signUp = new SignUp();
 
         signUp.validateErrorMessagesOnLogging();
 
-        signUp.signUpToPage("Dudi","QAExpertsIL@gmail.com","Dd1122334455","Dd1122334455");
+        signUp.signUpToPage("Dudi", "QAExpertsIL@gmail.com", "Dd1122334455", "Dd1122334455");
 
         Home home = new Home();
         home.chooseGift();
@@ -39,14 +38,14 @@ public class Extra {
         pickBusiness.pickBusinessAndEnterAmount("500");
 
         CardReciever cardReciever = new CardReciever();
-        cardReciever.fillCaregiverPage("David","שנה טובה ומתוקה");
+        cardReciever.fillCaregiverPage("David", "שנה טובה ומתוקה");
 
         Payment payment = new Payment();
         payment.getElementColor();
 
-         // go to https://convertingcolors.com/ and copy paste the result: rgba(255, 161, 38, 1)
+        // go to https://convertingcolors.com/ and copy paste the result: rgba(255, 161, 38, 1)
 
-       signUp.getElementSizeAndScreenShot();
+        signUp.getElementSizeAndScreenShot();
 
     }
 
@@ -54,10 +53,7 @@ public class Extra {
     public void test02_error_messages_on_login() {
         SignUp signUp = new SignUp();
         signUp.validateErrorMessagesOnLogging();
-
-
     }
-
 
     @AfterClass
     public static void tearDown() {
