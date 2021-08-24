@@ -24,7 +24,7 @@ public class Extra {
         DriverSingleton.getDriverInstance().get(DriverSingleton.getURL());
 
         String cwd = System.getProperty("user.dir");
-        ExtentSparkReporter htmlReporter = new ExtentSparkReporter(cwd + "\\EXTRA-extent.html");
+        ExtentSparkReporter htmlReporter = new ExtentSparkReporter(cwd + "\\EXTRA-BuyMe.html");
         extent.attachReporter(htmlReporter);
     }
 
