@@ -39,7 +39,7 @@ public class Actions {
         } catch (Exception e) {
             e.printStackTrace();
             test.fail("Test has failed");
-            test.pass("Failed Test", MediaEntityBuilder.createScreenCaptureFromPath(Reporting.takeScreenShot(DriverSingleton.getDriverInstance(), "Failed Test")).build());
+            test.fail("Failed Test", MediaEntityBuilder.createScreenCaptureFromPath(Reporting.takeScreenShot(DriverSingleton.getDriverInstance(), "Failed Test")).build());
 
 
         }
@@ -57,7 +57,7 @@ public class Actions {
         } catch (Exception e) {
             e.printStackTrace();
             test.fail("Test has failed");
-            test.pass("Failed Test", MediaEntityBuilder.createScreenCaptureFromPath(Reporting.takeScreenShot(DriverSingleton.getDriverInstance(), "Failed Test")).build());
+            test.fail("Failed Test", MediaEntityBuilder.createScreenCaptureFromPath(Reporting.takeScreenShot(DriverSingleton.getDriverInstance(), "Failed Test")).build());
         }
     }
 
@@ -71,7 +71,7 @@ public class Actions {
         } catch (Exception e) {
             e.printStackTrace();
             test.fail("Test has failed");
-            test.pass("Failed Test", MediaEntityBuilder.createScreenCaptureFromPath(Reporting.takeScreenShot(DriverSingleton.getDriverInstance(), "Failed Test")).build());
+            test.fail("Failed Test", MediaEntityBuilder.createScreenCaptureFromPath(Reporting.takeScreenShot(DriverSingleton.getDriverInstance(), "Failed Test")).build());
         }
         return null;
     }
@@ -96,7 +96,7 @@ public class Actions {
         } catch (Exception e) {
             e.printStackTrace();
             test.fail("Test has failed");
-            test.pass("Failed Test", MediaEntityBuilder.createScreenCaptureFromPath(Reporting.takeScreenShot(DriverSingleton.getDriverInstance(), "Failed Test")).build());
+            test.fail("Failed Test", MediaEntityBuilder.createScreenCaptureFromPath(Reporting.takeScreenShot(DriverSingleton.getDriverInstance(), "Failed Test")).build());
         }
     }
 
@@ -111,7 +111,7 @@ public class Actions {
         } catch (Exception e) {
             e.printStackTrace();
             test.fail("Test has failed");
-            test.pass("Failed Test", MediaEntityBuilder.createScreenCaptureFromPath(Reporting.takeScreenShot(DriverSingleton.getDriverInstance(), "Failed Test")).build());
+            test.fail("Failed Test", MediaEntityBuilder.createScreenCaptureFromPath(Reporting.takeScreenShot(DriverSingleton.getDriverInstance(), "Failed Test")).build());
 
         }
     }
@@ -126,7 +126,7 @@ public class Actions {
         } catch (Exception e) {
             e.printStackTrace();
             test.fail("Test has failed");
-            test.pass("Failed Test", MediaEntityBuilder.createScreenCaptureFromPath(Reporting.takeScreenShot(DriverSingleton.getDriverInstance(), "Failed Test")).build());
+            test.fail("Failed Test", MediaEntityBuilder.createScreenCaptureFromPath(Reporting.takeScreenShot(DriverSingleton.getDriverInstance(), "Failed Test")).build());
         }
         return DriverSingleton.getDriverInstance().findElement(locator).getText();
     }
