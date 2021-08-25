@@ -40,6 +40,7 @@ public class Actions {
             e.printStackTrace();
             test.fail("Test has failed");
             test.fail("Failed Test", MediaEntityBuilder.createScreenCaptureFromPath(Reporting.takeScreenShot(DriverSingleton.getDriverInstance(), "Failed Test")).build());
+            throw new AssertionError("clickElement has failed");
 
 
         }
@@ -58,6 +59,7 @@ public class Actions {
             e.printStackTrace();
             test.fail("Test has failed");
             test.fail("Failed Test", MediaEntityBuilder.createScreenCaptureFromPath(Reporting.takeScreenShot(DriverSingleton.getDriverInstance(), "Failed Test")).build());
+            throw new AssertionError("sendKeysToElement has failed");
         }
     }
 
@@ -72,8 +74,8 @@ public class Actions {
             e.printStackTrace();
             test.fail("Test has failed");
             test.fail("Failed Test", MediaEntityBuilder.createScreenCaptureFromPath(Reporting.takeScreenShot(DriverSingleton.getDriverInstance(), "Failed Test")).build());
+            throw new AssertionError("getElementAttribute has failed");
         }
-        return null;
     }
 
     /**
@@ -95,8 +97,9 @@ public class Actions {
             getWebElement(locator).clear();
         } catch (Exception e) {
             e.printStackTrace();
-            test.fail("Test has failed");
+            test.fail("clearTextBox has failed");
             test.fail("Failed Test", MediaEntityBuilder.createScreenCaptureFromPath(Reporting.takeScreenShot(DriverSingleton.getDriverInstance(), "Failed Test")).build());
+            throw new AssertionError("Click has failed");
         }
     }
 
@@ -110,8 +113,9 @@ public class Actions {
             waitForElement().until(elementToBeClickable(locator));
         } catch (Exception e) {
             e.printStackTrace();
-            test.fail("Test has failed");
+            test.fail("waitForElementToAppear has failed");
             test.fail("Failed Test", MediaEntityBuilder.createScreenCaptureFromPath(Reporting.takeScreenShot(DriverSingleton.getDriverInstance(), "Failed Test")).build());
+            throw new AssertionError("Click has failed");
 
         }
     }
@@ -127,8 +131,8 @@ public class Actions {
             e.printStackTrace();
             test.fail("Test has failed");
             test.fail("Failed Test", MediaEntityBuilder.createScreenCaptureFromPath(Reporting.takeScreenShot(DriverSingleton.getDriverInstance(), "Failed Test")).build());
+            throw new AssertionError("getTextFromElement has failed");
         }
-        return DriverSingleton.getDriverInstance().findElement(locator).getText();
     }
 
     /**
