@@ -21,7 +21,7 @@ public class SignUp extends Actions {
 
     private final Long timeStamp = Timestamp.valueOf(LocalDateTime.now()).getTime();
 
-    private static final String signUpButton = "//*[@id=\"ember953\"]/div/ul[1]/li[3]/a/span[2]";
+    private static final String signUpButton = "li[data-ember-action='970']";
     private static final String registerLink = ".text-link";
     private static final String nameTextBox = "input[placeholder='שם פרטי']";
     private static final String emailAddressTextBox = "input[placeholder='מייל']";
@@ -41,7 +41,7 @@ public class SignUp extends Actions {
 
     public void signUpToPage(String name, String email, String password1, String password2) throws Exception {
         test.log(Status.INFO, "SignUp Page Test Begins");
-        clickElement(By.xpath(signUpButton));
+        clickElement(By.cssSelector(signUpButton));
         test.pass("Click on SignUp button");
         clickElement(By.cssSelector(registerLink));
         test.pass("Click on Register button");
